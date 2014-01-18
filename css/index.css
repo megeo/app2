@@ -1,0 +1,231 @@
+
+
+body {
+-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+
+}
+
+/* Portrait layout (default) */
+.app {
+background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+position:absolute;             /* position in the center of the screen */
+left:50%;
+top:50%;
+height:50px;                   /* text area height */
+width:225px;                   /* text area width */
+text-align:center;
+padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+/* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+.app {
+background-position:left center;
+padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+/* offset horizontal: half of image width and text area width */
+}
+}
+
+
+.event {
+border-radius:4px;
+-webkit-border-radius:4px;
+color:#FFFFFF;
+font-size:12px;
+margin:0px 30px;
+padding:2px 0px;
+}
+
+.event.listening {
+
+display:block;
+}
+
+.event.received {
+
+display:none;
+}
+
+@keyframes fade {
+from { opacity: 1.0; }
+50% { opacity: 0.4; }
+to { opacity: 1.0; }
+}
+
+@-webkit-keyframes fade {
+from { opacity: 1.0; }
+50% { opacity: 0.4; }
+to { opacity: 1.0; }
+}
+
+.blink {
+animation:fade 3000ms infinite;
+-webkit-animation:fade 3000ms infinite;
+}
+
+.addToDo {
+margin-left: 0;
+position:absolute;
+left:0px;
+}
+
+.removeTasks {
+float:left;
+margin-right:0;
+position:absolute;
+right:0px;
+}
+
+
+#dataTable {
+    margin-left: -20px;
+}
+
+table {
+width: 100%;
+padding: 0;
+margin: 0;
+}
+
+
+input[type="text"]{
+align-items: flex-start;
+text-align: left;
+cursor: default;  
+color: #f2f2f2;
+padding: 0;
+border: 0;
+margin: 0;
+border-image-source: none;
+border-image-slice: none;
+border-image-width: none;
+border-image-outset: none;
+border-image-repeat: none;
+background: transparent;
+box-sizing: none;
+outline: 0;
+}
+
+.textbox {
+    width: 100%;
+    float: left;
+}
+
+.checkbox {
+    width:19px;
+    height:19px;
+    padding: 0;
+    border: 0;  
+    margin: 3px 0 0 0;
+    outline: 0;
+}
+
+input[type="checkbox"] {
+box-sizing: border-box;
+-webkit-appearance: none;
+-moz-appearance: none;
+    background: url(../img/check_radio_sheet.png) left top no-repeat;
+}
+
+input[type="checkbox"]:checked {
+    background: url(../img/check_radio_sheet.png) -19px top no-repeat;
+}
+
+
+.viewButton { 
+background: url(../img/view3.png) top no-repeat;
+width:20px;
+height:18;
+border: 0;
+outline: 0;
+padding-left: 10x;
+}
+
+.viewButton:hover { 
+background: url(../img/view4.png) top no-repeat;
+width:20x;
+height:18;
+border: 0;
+outline: 0;
+}
+
+.btn {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 10px;
+	display: inline-block;
+	margin: 0px;
+	text-transform: none;
+	letter-spacing: 1px;
+	font-size: 14px;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+     left: 5px;
+}   
+
+.btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* Button 2 */
+.btn-2 {
+	background: #cb4e4e;
+	color: #fff;
+	box-shadow: 0 6px #ab3c3c;
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
+	float: left;
+	margin: 0 5px 0 0;
+
+}
+
+/* Button 2c */
+.btn-2c {
+	border-radius: 5px;
+}
+
+.btn-2c:hover {
+	box-shadow: 0 4px #ab3c3c;
+	top: 2px;
+}
+
+.btn-2c:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+/* Button 2d */
+.btn-2d {
+	border-radius: 5px;
+
+}
+
+.btn-2d:hover {
+	box-shadow: 0 8px #ab3c3c;
+	top: -2px;
+}
+
+.btn-2d:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+

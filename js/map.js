@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="user-scalable=no,initial-scale=1, maximum-scale=1,minimum-scale=1, width=device-width" />
-        <title>You are here...</title>
-        <style type="text/css">
-            #map_placer { margin-left: 12%; position: absolute; z-index:0; height: 100%; width: 88%; }
-        </style>
-<link rel="stylesheet" type="text/css" href="css/demo.css" />
-	<link rel="stylesheet" type="text/css" href="css/component.css" />
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
-	<script src="js/modernizr.custom.js"></script>
-        <script type="text/javascript" src="js/task.js"></script>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDsujp7vdVRPj7B5pZwdr4ZShABgVdNrCU&sensor=true"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript">
             //Add event listener to run when the device is ready
             document.addEventListener("deviceready", onDeviceReady, false);
             
             //Device is ready, Get geolocation data 
             function onDeviceReady() {
                 navigator.geolocation.getCurrentPosition(onSuccess,onError);
+			navigator.splashscreen.show();
             }
             
             //If successful, get position data
@@ -72,60 +57,3 @@
                 var element = document.getElementById('map_placer');
                 element.innerHTML = errString;
             }
-        </script>
-    </head>
-       <body onload="loadToDoList()" >
-		<div class="container">
-			<div id="splitlayout" class="splitlayout">
-				<div class="intro">
-					<div class="side side-left">
-						
-						<div class="intro-content">
-							<h1><span>To Kitchen</span><span>all about the food?</span></h1>
-						</div>
-						<div class="overlay"></div>
-					</div>
-					<div class="side side-right">
-						<div class="intro-content">
-				
-							<h1><span>To Toilet</span><span>simply the best</span></h1>
-						</div>
-						<div class="overlay"></div>
-					</div>
-				</div><!-- /intro -->
-
-
-
-
-
-			
-
-        <div id="map_placer"></div>
-
-
-		
-	
-				<div class="page page-left">
-					<div class="page-inner">
-						<section>
-					<button class="btn btn-2 btn-2c" onclick="createNewToDo()">Add Task</button>
-					<button class="btn btn-2 btn-2d" onclick="removeCompletedTasks()">Remove Task</button>
-			
-        <br/><br/><br/>
-        <table id="dataTable" width="100%" border="0">
-        </table>
-
-				
-						</section>
-						
-					</div><!-- /page-inner -->
-				</div><!-- /page-left -->
-				<a href="#" class="back back-right" title="back to intro">&rarr;</a>
-				<a href="#" class="back back-left" title="back to intro">&larr;</a>
-			</div><!-- /splitlayout -->
-		</div><!-- /container -->
-
-		<script src="js/classie.js"></script>
-		<script src="js/cbpSplitLayout.js"></script>
-    </body>
-</html>

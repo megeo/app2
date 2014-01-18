@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PhoneGap Application</title>
+        <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+        <script type="text/javascript">
+
+            // Wait for PhoneGap to load
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            // PhoneGap is ready
+            function onDeviceReady() {
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            }
+
+            function onSuccess(position) {
+                var geoElement = document.getElementById('geodata');
+                geoElement.innerHTML =
+                        'Latitude: ' + position.coords.latitude + '<br />' +
+                        'Longitude: ' + position.coords.longitude + '<br />' +
+                        'Altitude: ' + position.coords.altitude + '<br />' +
+                        'Accuracy: ' + position.coords.accuracy + '<br />' +
+                        'Heading: ' + position.coords.heading + '<br />' +
+                        'Speed: ' + position.coords.speed + '<br />' +
+                        'Timestamp: ' + position.coords.timestamp + '<br />';
+
+            }
+
+            function onError(error) {
+                var errString = '';
+                if (error.code) {
+                    switch (error.code) {
+                        case 1:
+                            errString =
+                                    'We do not have permission';
+                            break;
+                        case 2:
+                            errString =
+                                    'The location can not be determined';
+                            break;
+                        case 3:
+                            errString =
+                                    'There was a timeout';
+                            break;
+                        default:
+                            errString =
+                                    'Unknown error';
+                            break
+                    }
+                }
+                var element = document.getElementById('geodata');
+                element.innerHTML = errString;
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>Geolocation Data</h1>
+        <div id="geodata">Getting location data...</div>
+    </body>
+</html>
